@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/resaurant?useSSL=false&serverTimezone=UTC
+    username: root         # Substitua pelo usuário do seu banco de dados
+    password: root  # Substitua pela senha do seu banco de dados
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create     # Opções: none, validate, update, create, create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect # Dialeto do MySQL 8
+    show-sql: true          # Exibe as consultas SQL no console
+    format-sql: true        # Formata as consultas SQL exibidas
+  jackson:
+    serialization:
+      indent-output: true   # Exibe JSON formatado nos logs
+  sql:
+    init:
+      mode: always          # Permite inicializar dados de scripts SQL
+
+logging:
+  level:
+    org:
+      springframework:
+        orm: DEBUG          # Log detalhado para operações do ORM (opcional)
